@@ -13,5 +13,5 @@ public interface PlaceRepository extends JpaRepository<Place, UUID> {
 
     Optional<Place> findByName(String name);
 
-    Optional<List<Place>> findByNameContainingIgnoreCase(String name);
+    List<Place> findByNameContainingIgnoreCase(String name);
 }

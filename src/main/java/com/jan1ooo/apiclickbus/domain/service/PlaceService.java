@@ -44,6 +44,6 @@ public class PlaceService {
     }
 
     public List<PlaceDTO> findByName(String name){
-        return repository.findByNameContainingIgnoreCase(name).get().stream().map(mapper::toDTO).toList();
+        return repository.findByNameContainingIgnoreCase(name).stream().map(mapper::toDTO).toList();
     }
 }
