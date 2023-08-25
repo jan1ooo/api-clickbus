@@ -28,9 +28,15 @@ public class PlaceController {
         return service.create(place);
     }
 
+    @GetMapping("/specific/search")
+    @ResponseStatus(HttpStatus.OK)
+    public PlaceDTO findBySpecificName(@RequestParam String name){
+        return service.findBySpecificName(name);
+    }
+
     @GetMapping("/search")
     @ResponseStatus(HttpStatus.OK)
-    public PlaceDTO findByName(@RequestParam String name){
+    public List<PlaceDTO> findByName(@RequestParam String name){
         return service.findByName(name);
     }
 

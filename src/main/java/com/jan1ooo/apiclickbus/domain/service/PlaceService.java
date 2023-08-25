@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -27,7 +26,7 @@ public class PlaceService {
         return mapper.toDTO(repository.save(mapper.toEntity(place)));
     }
 
-    public PlaceDTO findByName(String name){
+    public PlaceDTO findBySpecificName(String name){
         return mapper.toDTO(repository.findByName(name).get());
     }
 
@@ -42,5 +41,9 @@ public class PlaceService {
                     recordFound.setUpdated(LocalDateTime.now());
                     return mapper.toDTO(repository.save(recordFound));
                 }).orElseThrow(() -> new RecordNotFoundException(name));
+    }
+
+    public List<PlaceDTO> findByName(String name){
+        return repository.findByNameContainingIgnoreCase(name).get().stream().map(mapper::toDTO).toList();
     }
 }
