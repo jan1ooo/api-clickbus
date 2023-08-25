@@ -1,5 +1,6 @@
 package com.jan1ooo.apiclickbus.controllers;
 
+import com.jan1ooo.apiclickbus.domain.dto.PlaceDTO;
 import com.jan1ooo.apiclickbus.domain.entities.Place;
 import com.jan1ooo.apiclickbus.domain.service.PlaceService;
 import jakarta.validation.Valid;
@@ -18,13 +19,13 @@ public class PlaceController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<Place> findAll(){
+    public List<PlaceDTO> findAll(){
         return service.findAll();
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Place create(@Valid @RequestBody Place place){
+    public PlaceDTO create(@Valid @RequestBody PlaceDTO place){
         return service.create(place);
     }
 }
