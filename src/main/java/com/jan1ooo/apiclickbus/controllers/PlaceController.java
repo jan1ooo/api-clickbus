@@ -1,7 +1,6 @@
 package com.jan1ooo.apiclickbus.controllers;
 
 import com.jan1ooo.apiclickbus.domain.dto.PlaceDTO;
-import com.jan1ooo.apiclickbus.domain.entities.Place;
 import com.jan1ooo.apiclickbus.domain.service.PlaceService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -33,5 +32,11 @@ public class PlaceController {
     @ResponseStatus(HttpStatus.OK)
     public PlaceDTO findByName(@RequestParam String name){
         return service.findByName(name);
+    }
+
+    @PutMapping("/search")
+    @ResponseStatus(HttpStatus.OK)
+    public PlaceDTO create(@Valid @RequestParam String name,@Valid @RequestBody PlaceDTO place){
+        return service.update(name, place);
     }
 }

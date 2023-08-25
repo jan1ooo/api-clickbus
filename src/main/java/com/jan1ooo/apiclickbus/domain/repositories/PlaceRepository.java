@@ -4,10 +4,11 @@ import com.jan1ooo.apiclickbus.domain.entities.Place;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
 import java.util.UUID;
 
 @Repository
 public interface PlaceRepository extends JpaRepository<Place, UUID> {
 
-    Place findByName(String name);
+    Optional<Place> findByName(String name);
 }
