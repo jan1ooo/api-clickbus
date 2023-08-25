@@ -25,4 +25,8 @@ public class PlaceService {
     public PlaceDTO create(@Valid PlaceDTO place){
         return mapper.toDTO(repository.save(mapper.toEntity(place)));
     }
+
+    public PlaceDTO findByName(String name){
+        return mapper.toDTO(repository.findByName(name));
+    }
 }

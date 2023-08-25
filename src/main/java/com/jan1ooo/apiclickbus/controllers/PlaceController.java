@@ -28,4 +28,10 @@ public class PlaceController {
     public PlaceDTO create(@Valid @RequestBody PlaceDTO place){
         return service.create(place);
     }
+
+    @GetMapping("/search")
+    @ResponseStatus(HttpStatus.OK)
+    public PlaceDTO findByName(@RequestParam String name){
+        return service.findByName(name);
+    }
 }
