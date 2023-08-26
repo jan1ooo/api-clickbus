@@ -10,6 +10,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.TransactionSystemException;
 
@@ -68,6 +69,10 @@ public class PlaceService {
         catch (NoSuchElementException e){
             logger.error("Not found with name: " + name + ", in request: PUT /api/place/search");
             throw new RecordNotFoundException(name);
+        }
+        catch (TransactionSystemException e){
+            logger.error("Invalid JSON in request: PUT /api/place/search");
+            throw new BodyBadRequestException("Your JSON is missing information");
         }
     }
 

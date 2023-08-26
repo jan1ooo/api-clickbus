@@ -44,7 +44,7 @@ public class PlaceController {
 
     @PutMapping("/search")
     @ResponseStatus(HttpStatus.OK)
-    public PlaceDTO create(@Valid @RequestParam String name,@Valid @RequestBody PlaceDTO place){
+    public PlaceDTO create(@RequestParam String name,@RequestBody PlaceDTO place){
         return service.update(name, place);
     }
 }
