@@ -1,5 +1,6 @@
-package com.jan1ooo.apiclickbus.domain.dto;
+package com.jan1ooo.apiclickbus.domain.dto.mapper;
 
+import com.jan1ooo.apiclickbus.domain.dto.PlaceDTO;
 import com.jan1ooo.apiclickbus.domain.entities.Place;
 import org.springframework.stereotype.Component;
 

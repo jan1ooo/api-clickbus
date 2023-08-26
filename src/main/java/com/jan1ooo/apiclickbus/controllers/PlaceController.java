@@ -2,6 +2,7 @@ package com.jan1ooo.apiclickbus.controllers;
 
 import com.jan1ooo.apiclickbus.domain.dto.PlaceDTO;
 import com.jan1ooo.apiclickbus.domain.service.PlaceService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Tag(name = "Place", description = "API Place")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/place")

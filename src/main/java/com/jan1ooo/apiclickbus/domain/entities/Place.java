@@ -3,7 +3,7 @@ package com.jan1ooo.apiclickbus.domain.entities;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -19,13 +19,13 @@ public class Place {
     @Id
     private UUID id_place = UUID.randomUUID();
 
-    @NotNull
+    @NotBlank
     private String name;
-    @NotNull
+    @NotBlank
     private String slug;
-    @NotNull
+    @NotBlank
     private String city;
-    @NotNull
+    @NotBlank
     private String state;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")

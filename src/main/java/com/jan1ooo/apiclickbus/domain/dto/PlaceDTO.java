@@ -1,7 +1,7 @@
 package com.jan1ooo.apiclickbus.domain.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,13 +15,9 @@ import java.util.UUID;
 public class PlaceDTO {
 
     private UUID id_place = UUID.randomUUID();
-    @NotNull
     private String name;
-    @NotNull
     private String slug;
-    @NotNull
     private String city;
-    @NotNull
     private String state;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime created = LocalDateTime.now();
